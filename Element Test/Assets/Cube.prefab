@@ -125,7 +125,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 418d46e498062f44cb7f5bc0a1773686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackable: {fileID: 11400000, guid: c16b4d19a9523d048b09109669ce11b3, type: 2}
+  typeRef: {fileID: 11400000, guid: c16b4d19a9523d048b09109669ce11b3, type: 2}
+  attackable: {fileID: 0}
 --- !u!54 &-6919197640322867711
 Rigidbody:
   m_ObjectHideFlags: 0
