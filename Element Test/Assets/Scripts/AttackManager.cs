@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class AttackManager : MonoBehaviour
 {
-    public float Attack(AttackableObject attacker, AttackableObject defender)
+    [SerializeField]
+    private ElementManager elementManager;
+    public float Attack(Attack incomingAttack, Damageable target)
     {
-        if (attacker.attack > defender.defense)
+        if (incomingAttack.damage > target.defense)
         {
-            float damage = attacker.attack - defender.defense;
-            if (DoesCritHit(attacker.criticalHitRate))
+            float damage = incomingAttack.damage - target.defense;
+            if (DoesCritHit(incomingAttack.criticalHitRate))
             {
-                damage *= attacker.criticalHitDamageMultiplier;
+                damage *= incomingAttack.criticalHitDamageMultiplier;
             }
             return damage;
         }
@@ -19,18 +21,17 @@ public class AttackManager : MonoBehaviour
         return 0.0f;
     }
 
-    public float Attack(AttackableObject attacker, AttackableObject defender, Element elementOffensive, Element elementDefensive)
+    public float Attack(Attack incomingAttack, Damageable target, Element elementOffensive, Element elementDefensive)
     {
         Debug.Log("Attack Started");
-        if (attacker.attack > defender.defense)
+        if (incomingAttack.damage > target.defense)
         {
-            float damage = attacker.attack - defender.defense;
-            GameObject elementManager = GameObject.Find("ElementManager");
+            float damage = incomingAttack.damage - target.defense;
             damage = elementManager.GetComponent<ElementManager>().CalculateDamage(elementOffensive, elementDefensive, damage);
-            if (DoesCritHit(attacker.criticalHitRate))
+            if (DoesCritHit(incomingAttack.criticalHitRate))
             {
                 Debug.Log("Critical Hit");
-                damage *= attacker.criticalHitDamageMultiplier;
+                damage *= incomingAttack.criticalHitDamageMultiplier;
             }
             Debug.Log(damage);
             return damage;

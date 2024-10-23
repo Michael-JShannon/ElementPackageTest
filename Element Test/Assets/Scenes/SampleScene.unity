@@ -565,6 +565,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1da0796496f3da144af833e8a2a49bf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  elementManager: {fileID: 0}
 --- !u!4 &671653830
 Transform:
   m_ObjectHideFlags: 0
@@ -952,8 +953,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 418d46e498062f44cb7f5bc0a1773686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  typeRef: {fileID: 11400000, guid: d056e049b9e824c4da205e53c217ab46, type: 2}
-  attackable: {fileID: 0}
+  typeRef: {fileID: 11400000, guid: beadc3e81bc459a448a31ad736bb726d, type: 2}
+  attack: {fileID: 0}
 --- !u!114 &1455982040
 MonoBehaviour:
   m_ObjectHideFlags: 0

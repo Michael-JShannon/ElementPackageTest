@@ -22,7 +22,6 @@ public class AttackableObject : ScriptableObject
         for(int i = 0; i < effectsOnObject.Length; i++)
         {
             TakeDamage(effectsOnObject[i].effectDamage);
-            //health -= effectsOnObject[i].effectDamage;
             if (effectsOnObject[i].DamageOverTime != true)
             {
                 effectsOnObject[i] = null;

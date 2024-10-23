@@ -18,7 +18,7 @@ public class SpawnCube : MonoBehaviour
     {
         for(int i = 0; i < cubes.Length; i++)
         {
-            if (cubes[i] != null && cubes[i].GetComponent<AttackHolder>().attackable.health <= 0)
+            if (cubes[i] != null && cubes[i].GetComponent<Damageable>().health <= 0)
             {
                 Destroy(cubes[i]);
             }

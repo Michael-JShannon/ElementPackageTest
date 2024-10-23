@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6278392037679526579}
   - component: {fileID: 7144681300288895980}
   - component: {fileID: -6919197640322867711}
+  - component: {fileID: -3218499124125043864}
   m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
@@ -125,8 +126,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 418d46e498062f44cb7f5bc0a1773686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  typeRef: {fileID: 11400000, guid: c16b4d19a9523d048b09109669ce11b3, type: 2}
-  attackable: {fileID: 0}
+  typeRef: {fileID: 0}
+  attack: {fileID: 0}
 --- !u!54 &-6919197640322867711
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -143,3 +144,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-3218499124125043864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5300551074806281049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eaee8bc9d1ea4148995523b753ef67e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  defense: 15
+  effectHitResistance: 10
+  effectsOnObject: []

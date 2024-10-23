@@ -5,11 +5,11 @@ using UnityEngine;
 public class AttackHolder : MonoBehaviour
 {
     [SerializeField]
-    private AttackableObject typeRef;
-    public AttackableObject attackable;
+    private Attack typeRef;
+    public Attack attack;
 
     private void Start()
     {
-        attackable = Instantiate<AttackableObject>(typeRef);
+        attack = Instantiate<Attack>(typeRef);
     }
 }

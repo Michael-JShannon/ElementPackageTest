@@ -28,9 +28,10 @@ public class Player : MonoBehaviour
             {
                 Debug.Log("Hit");
                 GameObject defender = hit.collider.gameObject;
-                AttackableObject attacker = GetComponentInParent<AttackHolder>().attackable;
-                float damage = attackManager.Attack(attacker, defender.GetComponent<AttackHolder>().attackable, GetComponentInParent<ElementHolder>().element, defender.GetComponent<ElementHolder>().element);
-                defender.GetComponent<AttackHolder>().attackable.TakeDamage(damage);
+                Attack incomingAttack = GetComponentInParent<AttackHolder>().attack;
+                float damage = attackManager.Attack(incomingAttack, defender.GetComponent<Damageable>(), GetComponentInParent<ElementHolder>().element, defender.GetComponent<ElementHolder>().element);
+                defender.GetComponent<Damageable>().TakeDamage(damage);
+                elementManager.DoesEffectHit(GetComponentInParent<ElementHolder>().element, defender.GetComponent<ElementHolder>().element, incomingAttack, defender.GetComponent<Damageable>());
                 Debug.Log("Damage dealt = " + damage);
             }
         }

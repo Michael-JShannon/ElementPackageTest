@@ -12,6 +12,7 @@ public class ElementManager : MonoBehaviour
         {
             if (ele == offense)
             {
+                Debug.Log("Super Effective Damage");
                 damageMod += defense.weaknessBonus;
             }
         }
@@ -20,17 +21,18 @@ public class ElementManager : MonoBehaviour
         {
             if (ele == offense)
             {
+                Debug.Log("Not Very Effective Damage");
                 damageMod -= defense.defensiveRes;
             }
         }
         return (attackDamage * damageMod);
     }
 
-    public bool DoesEffectHit(Element effectElement, Element defenseElement, AttackableObject attacker, AttackableObject defender)
+    public bool DoesEffectHit(Element effectElement, Element defenseElement, Attack incomingAttack, Damageable defender)
     {
         float rand = UnityEngine.Random.Range(0.0f, 100.0f);
 
-        float effectHit = effectElement.effectChance * (1.0f - defenseElement.effectRes) * (1.0f + attacker.effectHitRateBonus) * (1.0f - defender.effectHitResistance);
+        float effectHit = effectElement.effectChance * (1.0f - defenseElement.effectRes) * (1.0f + incomingAttack.effectHitRateBonus) * (1.0f - defender.effectHitResistance);
 
         return effectHit < rand;
     }
