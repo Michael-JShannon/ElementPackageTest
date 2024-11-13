@@ -6,6 +6,8 @@ public class AttackManager : MonoBehaviour
 {
     [SerializeField]
     private ElementManager elementManager;
+    [SerializeField]
+    private GameObject criticalStrikeVFX;
     public float Attack(Attack incomingAttack, Damageable target)
     {
         if (incomingAttack.damage > target.defense)
@@ -30,7 +32,7 @@ public class AttackManager : MonoBehaviour
             damage = elementManager.GetComponent<ElementManager>().CalculateDamage(elementOffensive, elementDefensive, damage);
             if (DoesCritHit(incomingAttack.criticalHitRate))
             {
-                Debug.Log("Critical Hit");
+                Instantiate(criticalStrikeVFX);
                 damage *= incomingAttack.criticalHitDamageMultiplier;
             }
             Debug.Log(damage);

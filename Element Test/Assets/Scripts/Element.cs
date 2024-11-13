@@ -25,4 +25,7 @@ public class Element : ScriptableObject
     public bool DamageOverTime;
     [Tooltip("Damage done by effect")]
     public float effectDamage;
+
+    [SerializeField]
+    public Color color;
 }

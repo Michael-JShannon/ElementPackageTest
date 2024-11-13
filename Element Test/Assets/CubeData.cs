@@ -4,25 +4,22 @@ using UnityEngine;
 
 public class CubeData : MonoBehaviour
 {
-    public float health, defense, attack;
-
-    public float criticalHitRate;
-    public float criticalHitDamageMultiplier;
-
-    public float effectHitRateBonus;
-    public float effectHitResistance;
-
-    public Element[] effectsOnObject;
+    Attack m_attack;
+    Damageable m_damageable;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        m_attack = GetComponent<AttackHolder>().attack;
+        m_damageable = GetComponent<Damageable>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(m_damageable.health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }

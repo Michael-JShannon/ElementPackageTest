@@ -25,3 +25,4 @@ MonoBehaviour:
   effectRes: 20
   DamageOverTime: 0
   effectDamage: 80
+  color: {r: 0, g: 0.8490566, b: 0.0047735223, a: 1}

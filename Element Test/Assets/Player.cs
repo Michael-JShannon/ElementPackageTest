@@ -23,10 +23,8 @@ public class Player : MonoBehaviour
         
         if(Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Mouse Clicked");
             if(Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit, 100f, mask))
             {
-                Debug.Log("Hit");
                 GameObject defender = hit.collider.gameObject;
                 Attack incomingAttack = GetComponentInParent<AttackHolder>().attack;
                 float damage = attackManager.Attack(incomingAttack, defender.GetComponent<Damageable>(), GetComponentInParent<ElementHolder>().element, defender.GetComponent<ElementHolder>().element);

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: PlayerAttack1
   m_EditorClassIdentifier: 
   damage: 20
-  criticalHitRate: 5
+  criticalHitRate: 20
   criticalHitDamageMultiplier: 2
   effectHitRateBonus: 25
