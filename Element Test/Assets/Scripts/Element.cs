@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 [CreateAssetMenu(menuName = "Element")]
 [Serializable]
@@ -28,4 +29,6 @@ public class Element : ScriptableObject
 
     [SerializeField]
     public Color color;
+    [SerializeField]
+    public GameObject effectVFX;
 }

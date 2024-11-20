@@ -352,6 +352,7 @@
 "Assets/CritVFX.cs"
 "Assets/CubeColourChanger.cs"
 "Assets/CubeData.cs"
+"Assets/DamageOutputDisplay.cs"
 "Assets/Player.cs"
 "Assets/PlayerElementDisplay.cs"
 "Assets/Scripts/Attack.cs"

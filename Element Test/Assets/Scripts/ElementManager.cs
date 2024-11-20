@@ -1,9 +1,13 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ElementManager : MonoBehaviour
 {
     [SerializeField]
     Element[] elementsInPlay;
+
+    [SerializeField]
+    DamageOutputDisplay outputDisplay;
 
     public float CalculateDamage(Element offense, Element defense, float attackDamage)
     {
@@ -12,7 +16,7 @@ public class ElementManager : MonoBehaviour
         {
             if (ele == offense)
             {
-                Debug.Log("Super Effective Damage");
+                outputDisplay.DisplaySuperEffectiveHit(true, defense);
                 damageMod += defense.weaknessBonus;
             }
         }
@@ -21,7 +25,7 @@ public class ElementManager : MonoBehaviour
         {
             if (ele == offense)
             {
-                Debug.Log("Not Very Effective Damage");
+                outputDisplay.DisplaySuperEffectiveHit(false, defense);
                 damageMod -= defense.defensiveRes;
             }
         }
@@ -32,23 +36,23 @@ public class ElementManager : MonoBehaviour
     {
         float rand = UnityEngine.Random.Range(0.0f, 100.0f);
 
-        float effectHit = effectElement.effectChance * (1.0f - defenseElement.effectRes) * (1.0f + incomingAttack.effectHitRateBonus) * (1.0f - defender.effectHitResistance);
-
+        float effectHit = effectElement.effectChance * (1.0f - (defenseElement.effectRes / 100)) * (1.0f + (incomingAttack.effectHitRateBonus / 100)) * (1.0f - (defender.effectHitResistance / 100));
+        Debug.Log(effectHit < rand);
         return effectHit < rand;
     }
 
-    public void ApplyEffect(AttackableObject affectedChar, Element affectingElement)
+    public void ApplyEffect(Damageable affectedChar, Element affectingElement)
     {
-        for (int i = 0; i < affectedChar.effectsOnObject.Length + 1; i++)
-        {
-            if (affectedChar.effectsOnObject[i] != null)
-            {
-                affectedChar.effectsOnObject[i] = affectingElement;
-            }
-        }
-        
+        affectedChar.effectsOnObject.Add(affectingElement);
+        //for (int i = 0; i < affectedChar.effectsOnObject.Length; i++)
+        //{
+        //    if (affectedChar.effectsOnObject[i] != null)
+        //    {
+        //        affectedChar.effectsOnObject.SetValue(affectingElement, i);
+        //    }
+        //}
     }
-    
+
     public void AssignRandomElementToObject(GameObject target)
     {
         float rand = UnityEngine.Random.Range(0, elementsInPlay.Length);

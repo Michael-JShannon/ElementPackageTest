@@ -8,23 +8,44 @@ public class Damageable : MonoBehaviour
 
     public float effectHitResistance;
 
-    public Element[] effectsOnObject;
+    public List<Element> effectsOnObject;
+
+    [Space]
+    public DamageOutputDisplay outputDisplay;
+
+    private void Start()
+    {
+        outputDisplay = FindObjectOfType<DamageOutputDisplay>();
+    }
+
+    private void Update()
+    {
+        if (effectsOnObject.Count > 0)
+        {
+            EffectDamage();
+        }
+    }
 
     public void EffectDamage()
     {
-        for (int i = 0; i < effectsOnObject.Length; i++)
+        for (int i = 0; i < effectsOnObject.Count; i++)
         {
-            TakeDamage(effectsOnObject[i].effectDamage);
+            Instantiate(effectsOnObject[i].effectVFX, transform);
+
             if (effectsOnObject[i].DamageOverTime != true)
             {
-                effectsOnObject[i] = null;
+                TakeDamage(effectsOnObject[i].effectDamage);
+                outputDisplay.DisplayEffectDamage(effectsOnObject[i]);
+                effectsOnObject.Remove(effectsOnObject[i]);
+                return;
             }
+            TakeDamage(effectsOnObject[i].effectDamage * Time.deltaTime);
+            outputDisplay.DisplayEffectDamage(effectsOnObject[i]);
         }
     }
 
     public void TakeDamage(float damageToTake)
     {
-        Debug.Log("Damage taken = " + damageToTake);
         health -= damageToTake;
     }
 }

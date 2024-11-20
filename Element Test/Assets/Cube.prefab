@@ -160,8 +160,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   defense: 15
-  effectHitResistance: 10
+  effectHitResistance: 0
   effectsOnObject: []
+  outputDisplay: {fileID: 7382096488752834590, guid: 3ed66229b24c3be4e9089bd188cfec4a, type: 3}
 --- !u!114 &704410182295697311
 MonoBehaviour:
   m_ObjectHideFlags: 0

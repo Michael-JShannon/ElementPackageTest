@@ -59,18 +59,19 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Damageable.cs" />
     <Compile Include="Assets\Scripts\ElementHolder.cs" />
+    <Compile Include="Assets\CubeColourChanger.cs" />
     <Compile Include="Assets\SpawnCube.cs" />
+    <Compile Include="Assets\PlayerElementDisplay.cs" />
     <Compile Include="Assets\Scripts\Element.cs" />
     <Compile Include="Assets\Scripts\AttackManager.cs" />
     <Compile Include="Assets\Scripts\AttackHolder.cs" />
+    <Compile Include="Assets\VFXDestroyTimer.cs" />
     <Compile Include="Assets\CubeData.cs" />
     <Compile Include="Assets\Player.cs" />
     <Compile Include="Assets\AttackableObject.cs" />
     <Compile Include="Assets\Scripts\ElementManager.cs" />
     <Compile Include="Assets\Scripts\Attack.cs" />
-    <Compile Include="Assets\CubeColourChanger.cs" />
-    <Compile Include="Assets\CritVFX.cs" />
-    <Compile Include="Assets\PlayerElementDisplay.cs" />
+    <Compile Include="Assets\DamageOutputDisplay.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

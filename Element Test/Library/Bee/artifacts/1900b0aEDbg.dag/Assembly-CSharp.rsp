@@ -348,15 +348,21 @@
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/Unity.VSCode.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/UnityEngine.UI.ref.dll"
+"Assets/AttackableObject.cs"
+"Assets/CubeColourChanger.cs"
 "Assets/CubeData.cs"
+"Assets/DamageOutputDisplay.cs"
 "Assets/Player.cs"
-"Assets/Scripts/AttackableObject.cs"
+"Assets/PlayerElementDisplay.cs"
+"Assets/Scripts/Attack.cs"
 "Assets/Scripts/AttackHolder.cs"
 "Assets/Scripts/AttackManager.cs"
+"Assets/Scripts/Damageable.cs"
 "Assets/Scripts/Element.cs"
 "Assets/Scripts/ElementHolder.cs"
 "Assets/Scripts/ElementManager.cs"
 "Assets/SpawnCube.cs"
+"Assets/VFXDestroyTimer.cs"
 -langversion:9.0
 
 /deterministic

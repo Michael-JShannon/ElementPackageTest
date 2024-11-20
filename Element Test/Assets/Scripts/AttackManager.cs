@@ -8,6 +8,10 @@ public class AttackManager : MonoBehaviour
     private ElementManager elementManager;
     [SerializeField]
     private GameObject criticalStrikeVFX;
+
+    [SerializeField]
+    private DamageOutputDisplay outputDisplay;
+
     public float Attack(Attack incomingAttack, Damageable target)
     {
         if (incomingAttack.damage > target.defense)
@@ -15,8 +19,10 @@ public class AttackManager : MonoBehaviour
             float damage = incomingAttack.damage - target.defense;
             if (DoesCritHit(incomingAttack.criticalHitRate))
             {
+                Instantiate(criticalStrikeVFX, target.transform);
                 damage *= incomingAttack.criticalHitDamageMultiplier;
             }
+            outputDisplay.DisplayDamage(damage);
             return damage;
         }
 
@@ -25,17 +31,16 @@ public class AttackManager : MonoBehaviour
 
     public float Attack(Attack incomingAttack, Damageable target, Element elementOffensive, Element elementDefensive)
     {
-        Debug.Log("Attack Started");
         if (incomingAttack.damage > target.defense)
         {
             float damage = incomingAttack.damage - target.defense;
             damage = elementManager.GetComponent<ElementManager>().CalculateDamage(elementOffensive, elementDefensive, damage);
             if (DoesCritHit(incomingAttack.criticalHitRate))
             {
-                Instantiate(criticalStrikeVFX);
+                Instantiate(criticalStrikeVFX, target.transform);
                 damage *= incomingAttack.criticalHitDamageMultiplier;
             }
-            Debug.Log(damage);
+            outputDisplay.DisplayDamage(damage);
             return damage;
         }
         return 0.0f;

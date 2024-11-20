@@ -26,3 +26,4 @@ MonoBehaviour:
   DamageOverTime: 1
   effectDamage: 10
   color: {r: 1, g: 0, b: 0, a: 1}
+  effectVFX: {fileID: 866520246038033684, guid: 8fbebdaed8cd586458b6b136146b1b69, type: 3}

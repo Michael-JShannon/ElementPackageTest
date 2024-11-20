@@ -29,8 +29,11 @@ public class Player : MonoBehaviour
                 Attack incomingAttack = GetComponentInParent<AttackHolder>().attack;
                 float damage = attackManager.Attack(incomingAttack, defender.GetComponent<Damageable>(), GetComponentInParent<ElementHolder>().element, defender.GetComponent<ElementHolder>().element);
                 defender.GetComponent<Damageable>().TakeDamage(damage);
-                elementManager.DoesEffectHit(GetComponentInParent<ElementHolder>().element, defender.GetComponent<ElementHolder>().element, incomingAttack, defender.GetComponent<Damageable>());
-                Debug.Log("Damage dealt = " + damage);
+                if(elementManager.DoesEffectHit(GetComponentInParent<ElementHolder>().element, defender.GetComponent<ElementHolder>().element, incomingAttack, defender.GetComponent<Damageable>()))
+                {
+                    Debug.Log("Effect Applied");
+                    elementManager.ApplyEffect(defender.GetComponent<Damageable>(), GetComponentInParent<ElementHolder>().element);
+                }
             }
         }
 
